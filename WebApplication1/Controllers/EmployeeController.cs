@@ -51,25 +51,40 @@ namespace WebApplication1.Controllers
             
             return View("Index", employeeListViewModel);
         }
+
         public ActionResult AddNew()
         {
-            return View("CreateEmployee");
+            return View("CreateEmployee",new CreateEmployeeViewModel());//day 4 prazen objekt oti view e strongly typed sega 
+                                                                        //ocekuva objekt 
         }
+
+
     public ActionResult SaveEmployee(Employee e, string BtnSubmit)
     {
         switch (BtnSubmit)
         {
             case "Save Employee":
-                if (ModelState.IsValid)
+                if (ModelState.IsValid)//ako e validen modelstate
                 {
                     EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
                     empBal.SaveEmployee(e);
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index");//snima i vakja na index
                 }
-                else
-                {
-                    return View("CreateEmployee");
-                }
+                else //ako ne e validen
+                {   //popolnuva viewmodel za employee so vekje vnesenite vrednosti
+                        // i gi vrakja vo view za da ne gi vnesuvame povtorno
+                        CreateEmployeeViewModel vm = new CreateEmployeeViewModel();//day4
+                        vm.FirstName = e.FirstName;//day4
+                        vm.LastName = e.LastName;//day4
+                        if (e.Salary.HasValue)//day4
+                        {
+                            vm.Salary = e.Salary.ToString();//day4
+                        } else
+                        {
+                            vm.Salary = ModelState["Salary"].Value.AttemptedValue;//day4
+                        }
+                        return View("CreateEmployee",vm);//day4
+                    }
             case "Cancel":
                 return RedirectToAction("Index");
         }
