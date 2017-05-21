@@ -1,5 +1,5 @@
 ﻿function IsFirstNameEmpty() {
-    if (document.getElementById('TxtFName').value = "") {
+    if (document.getElementById('TxtFName').value == "") {
         return 'First name should not be empty';
     } else {
         return "";
@@ -7,7 +7,7 @@
 }
 
 function IsFirstNameInValid() {
-    if (document.getElementById('TxtFName').value.indexOf("@")) {
+    if (document.getElementById('TxtFName').value.indexOf("@")!=-1) {
         return 'First name should not contain @';
     } else {
         return "";
@@ -23,7 +23,7 @@ function IsFirstNameInValid() {
 }
 
 function IsSalaryEmpty() {
-    if (document.getElementById('TxtSalary').value = "") {
+    if (document.getElementById('TxtSalary').value == "") {
         return "Salary should not be empty";
     } else {
         return "";

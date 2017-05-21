@@ -25,7 +25,7 @@ namespace WebApplication1.Models
         [Key]
         public int EmployeeId  { get; set; }
 
-        [FirstNameValidation]
+       [FirstNameValidation]
         public string FirstName { get; set; }
 
         [StringLength(20,ErrorMessage="Last Name length should not be greater than 5")]
