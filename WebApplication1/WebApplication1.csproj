@@ -169,7 +169,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\CreateEmployee.cshtml" />
-    <Content Include="Views\Authentication\UserDetails.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

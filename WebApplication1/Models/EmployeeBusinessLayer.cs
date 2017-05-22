@@ -13,6 +13,7 @@ namespace WebApplication1.Models
                 SalesERPDAL salesDal = new SalesERPDAL();
                 return salesDal.Employees.ToList();
             }
+
             public Employee SaveEmployee(Employee e)
             {
                 SalesERPDAL salesDal = new SalesERPDAL();
@@ -20,5 +21,17 @@ namespace WebApplication1.Models
                 salesDal.SaveChanges();
                 return e;
             }
+
+            public bool IsValidUser(UserDetails u)
+            {
+                if (u.UserName == "Admin" && u.Password == "Admin")
+                {
+                return true;
+                } else
+                {
+                return false;
+                }
+            }
+
         }
 }
