@@ -19,6 +19,8 @@
     <script src="~/Scripts/Validations.js"></script>
 </head>
 <body>
+    <div style="text-align:right">Hello @Model.UserName</div>
+    <hr />
     <div>
         <form action="/Employee/SaveEmployee" method="post" id="EmployeeForm">
             <table>
@@ -33,7 +35,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="right">
-                    @Html.ValidationMessage("FirstName")
+                    @Html.ValidationMessage("FirstName",new { style = "color:red;" })
                 </td>
             </tr>
             <tr>
@@ -46,7 +48,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="right">
-                    @Html.ValidationMessage("LastName")
+                    @Html.ValidationMessage("LastName",new { style = "color:red;" })
                 </td>
             </tr>
 
@@ -60,7 +62,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="right">
-                    @Html.ValidationMessage("Salary")
+                    @Html.ValidationMessage("Salary", new { style = "color:red;" })
                 </td>
             </tr>
 

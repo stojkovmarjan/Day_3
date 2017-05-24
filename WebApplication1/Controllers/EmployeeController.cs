@@ -25,6 +25,8 @@ namespace WebApplication1.Controllers
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
 
+            employeeListViewModel.UserName = User.Identity.Name;
+
             EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
             List<Employee> employees = empBal.GetEmployees();
 
@@ -50,10 +52,13 @@ namespace WebApplication1.Controllers
             return View("Index", employeeListViewModel);
         }
 
+        [Authorize]
         public ActionResult AddNew()
         {
-            return View("CreateEmployee",new CreateEmployeeViewModel());//day 4 prazen objekt oti view e strongly typed sega 
-                                                                        //ocekuva objekt 
+            CreateEmployeeViewModel createEmloyeeViewModel = new CreateEmployeeViewModel();
+            createEmloyeeViewModel.UserName = User.Identity.Name;
+            return View("CreateEmployee",createEmloyeeViewModel);//day 4 prazen objekt oti view e strongly typed sega 
+                                                                  //ocekuva objekt 
         }
 
 
